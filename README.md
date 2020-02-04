@@ -22,10 +22,10 @@ yarn global add schema-watcher
 ```sh
 > swatch [-h] [-v] -f FILE -s SCHEMA [-q QUERY] [-d]
 ```
-* **--help** (*-h*): Show the help message
-* **--file** (*-f*) **FILE**:  The data file to watch and validate
-* **--schema** (*-s*) **SCHEMA**: Path to a schema file
-* **--query** (*-q*) **QUERY**: JMESpath query to the schema if nested within a larger document
-* **-d**: De-reference the Schema object (i.e. expand the '$ref' attributes).
+* **`--help`** (*`-h`*): Show the help message
+* **`--file`** (*`-f`*) **FILE**:  The data file to watch and validate
+* **`--schema`** (*`-s`*) **SCHEMA**: Path to a schema file
+* **`--query`** (*`-q`*) **QUERY**: JMESpath query to the schema if nested within a larger document
+* **`-d`**: De-reference the Schema object (i.e. expand the '$ref' attributes).
     This may be required when the schema is nested within a larger document,
     but may increase memory usage and slow down validation.
