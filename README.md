@@ -19,6 +19,9 @@ yarn global add schema-watcher
 
 ## Usage
 
+```sh
+> swatch [-h] [-v] -f FILE -s SCHEMA [-q QUERY] [-d]
+```
 * **--help** (*-h*): Show the help message
 * **--file** (*-f*) **FILE**:  The data file to watch and validate
 * **--schema** (*-s*) **SCHEMA**: Path to a schema file
