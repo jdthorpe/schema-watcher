@@ -37,7 +37,9 @@ function validate_file() {
     let raw: string;
     console.log("Data file: " + args.file);
     console.log("Schema file " + args.schema);
-    console.log(chalk.bgBlue(`Last run at ${new Date().toLocaleString()}`));
+    console.log(
+        chalk.bgBlueBright.bold(`Last run at ${new Date().toLocaleString()}`)
+    );
     try {
         raw = readFileSync(args.file, "utf-8");
     } catch (err) {

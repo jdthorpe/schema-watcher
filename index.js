@@ -35,7 +35,7 @@ function validate_file() {
     var raw;
     console.log("Data file: " + args_1.default.file);
     console.log("Schema file " + args_1.default.schema);
-    console.log(chalk_1.default.bgBlue("Last run at " + new Date().toLocaleString()));
+    console.log(chalk_1.default.bgBlueBright.bold("Last run at " + new Date().toLocaleString()));
     try {
         raw = fs_1.readFileSync(args_1.default.file, "utf-8");
     }
