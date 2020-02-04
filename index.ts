@@ -35,10 +35,10 @@ validate_file();
 function validate_file() {
     console.clear();
     let raw: string;
-    console.log("Data file: " + args.file);
-    console.log("Schema file " + args.schema);
+    console.log(`${chalk.inverse("Data file")}: ${args.file}`);
+    console.log(`${chalk.inverse("Schema file")}: ${args.schema}`);
     console.log(
-        chalk.bgBlueBright.bold(`Last run at ${new Date().toLocaleString()}`)
+        chalk.bgBlue.black(`Last run at ${new Date().toLocaleString()}`)
     );
     try {
         raw = readFileSync(args.file, "utf-8");
@@ -58,11 +58,8 @@ function validate_file() {
     if (args.d) {
         parser.dereference(args.schema, {}, (err, schema: any) => {
             if (err) {
-                console.log(`====================`);
-                console.log(`Failed to parse ${args.file} with error:`);
-                console.log(chalk.bgRed(err.message));
+                console.log(chalk.bgRed.black(err.message));
                 console.log(err.stack);
-                console.log(`====================`);
                 return;
             }
             do_work(schema, data, args.query);
@@ -70,11 +67,8 @@ function validate_file() {
     } else {
         parser.bundle(args.schema, {}, (err, schema: any) => {
             if (err) {
-                console.log(`====================`);
-                console.log(`Failed to parse ${args.file} with error:`);
-                console.log(chalk.bgRed(err.message));
+                console.log(chalk.bgRed.black(err.message));
                 console.log(err.stack);
-                console.log(`====================`);
                 return;
             }
             do_work(schema, data, args.query);
@@ -103,7 +97,7 @@ function do_work(schema: any, data: any, query?: string) {
         schema_is_valid = false;
     }
     if (!schema_is_valid) {
-        console.log(chalk.bgRed("Invalid schema"));
+        console.log(chalk.bgRed.black("Invalid schema"));
         if (args.query && !args.d) {
             console.log(
                 chalk.bgGreen(
@@ -124,7 +118,7 @@ function do_work(schema: any, data: any, query?: string) {
     try {
         data_is_valid = AJV.validate(schema, data) as boolean;
     } catch (err) {
-        console.log(chalk.bgRed("Invalid schema"));
+        console.log(chalk.bgRed.black("Invalid schema"));
         console.log("Error:", err.message);
         if (args.query && !args.d) {
             console.log(
@@ -143,7 +137,7 @@ function do_work(schema: any, data: any, query?: string) {
     }
 
     if (!data_is_valid) {
-        console.log(chalk.bgRed("Data does not follow the schema"));
+        console.log(chalk.black.bgRed("Data does not follow the schema"));
         AJV.errors &&
             AJV.errors.map(e =>
                 console.log(

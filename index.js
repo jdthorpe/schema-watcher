@@ -33,9 +33,9 @@ validate_file();
 function validate_file() {
     console.clear();
     var raw;
-    console.log("Data file: " + args_1.default.file);
-    console.log("Schema file " + args_1.default.schema);
-    console.log(chalk_1.default.bgBlueBright.bold("Last run at " + new Date().toLocaleString()));
+    console.log(chalk_1.default.inverse("Data file") + ": " + args_1.default.file);
+    console.log(chalk_1.default.inverse("Schema file") + ": " + args_1.default.schema);
+    console.log(chalk_1.default.bgBlue.black("Last run at " + new Date().toLocaleString()));
     try {
         raw = fs_1.readFileSync(args_1.default.file, "utf-8");
     }
@@ -54,11 +54,7 @@ function validate_file() {
     if (args_1.default.d) {
         json_schema_ref_parser_1.default.dereference(args_1.default.schema, {}, function (err, schema) {
             if (err) {
-                console.log("====================");
-                console.log("Failed to parse " + args_1.default.file + " with error:");
-                console.log(chalk_1.default.bgRed(err.message));
-                console.log(err.stack);
-                console.log("====================");
+                console.log(chalk_1.default.bgRed.black(err.message.replace("jasonthorpe", "user")));
                 return;
             }
             do_work(schema, data, args_1.default.query);
@@ -67,11 +63,7 @@ function validate_file() {
     else {
         json_schema_ref_parser_1.default.bundle(args_1.default.schema, {}, function (err, schema) {
             if (err) {
-                console.log("====================");
-                console.log("Failed to parse " + args_1.default.file + " with error:");
-                console.log(chalk_1.default.bgRed(err.message));
-                console.log(err.stack);
-                console.log("====================");
+                console.log(chalk_1.default.bgRed.black(err.message.replace("jasonthorpe", "user")));
                 return;
             }
             do_work(schema, data, args_1.default.query);
@@ -98,13 +90,13 @@ function do_work(schema, data, query) {
         schema_is_valid = false;
     }
     if (!schema_is_valid) {
-        console.log(chalk_1.default.bgRed("Invalid schema"));
+        console.log(chalk_1.default.bgRed.black("Invalid schema"));
         if (args_1.default.query && !args_1.default.d) {
             console.log(chalk_1.default.bgGreen("This may occure when using json references in combinatoin with the query parameter.  Try setting the '-d' flag and re-starting"));
         }
         AJV.errors &&
             AJV.errors.map(function (e) {
-                return console.log(chalk_1.default.bgBlue(e.dataPath) + ": " + chalk_1.default.inverse(e.message));
+                return console.log(chalk_1.default.bgBlue(e.dataPath) + ": " + chalk_1.default.inverse(e.message.replace("jasonthorpe", "user")));
             });
         return;
     }
@@ -113,22 +105,22 @@ function do_work(schema, data, query) {
         data_is_valid = AJV.validate(schema, data);
     }
     catch (err) {
-        console.log(chalk_1.default.bgRed("Invalid schema"));
-        console.log("Error:", err.message);
+        console.log(chalk_1.default.bgRed.black("Invalid schema"));
+        console.log("Error:", err.message.replace("jasonthorpe", "user"));
         if (args_1.default.query && !args_1.default.d) {
             console.log(chalk_1.default.bgGreen.black("This may occure when using json references in combinatoin with the query parameter.  Try setting the '-d' flag and re-starting"));
         }
         AJV.errors &&
             AJV.errors.map(function (e) {
-                return console.log(chalk_1.default.bgBlue(e.dataPath) + ": " + chalk_1.default.inverse(e.message));
+                return console.log(chalk_1.default.bgBlue(e.dataPath) + ": " + chalk_1.default.inverse(e.message.replace("jasonthorpe", "user")));
             });
         return;
     }
     if (!data_is_valid) {
-        console.log(chalk_1.default.bgRed("Data does not follow the schema"));
+        console.log(chalk_1.default.black.bgRed("Data does not follow the schema"));
         AJV.errors &&
             AJV.errors.map(function (e) {
-                return console.log("'" + chalk_1.default.bgBlue(e.dataPath) + "': " + chalk_1.default.inverse(e.message));
+                return console.log("'" + chalk_1.default.bgBlue(e.dataPath) + "': " + chalk_1.default.inverse(e.message.replace("jasonthorpe", "user")));
             });
     }
     else {
