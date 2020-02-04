@@ -7,28 +7,10 @@ import { readFileSync } from "fs";
 import jq from "jmespath";
 import yaml from "js-yaml";
 
-console.clear();
-console.dir(args);
-
 const AJV = new Ajv({ allErrors: true });
 
 chokidar.watch(args.file).on("change", validate_file);
 chokidar.watch(args.schema).on("change", validate_file);
-
-let _ic = 0;
-const colors: string[] = [
-    "green",
-    "yellow",
-    "blue",
-    "magenta",
-    "cyan",
-    "white"
-];
-
-function next_color(): string {
-    _ic = (_ic + 1) % colors.length;
-    return colors[_ic];
-}
 
 validate_file();
 
@@ -149,9 +131,5 @@ function do_work(schema: any, data: any, query?: string) {
     }
 }
 
-process.once("SIGINT", function(code) {
-    process.exit();
-});
-process.once("SIGTERM", function(code) {
-    process.exit();
-});
+process.once("SIGINT", () => process.exit());
+process.once("SIGTERM", () => process.exit());

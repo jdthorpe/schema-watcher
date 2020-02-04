@@ -37,7 +37,6 @@ interface Args {
 }
 
 export const args: Args = parser.parseArgs();
-
 args.file = resolve(join(process.cwd(), args.file));
 args.schema = resolve(join(process.cwd(), args.schema));
 

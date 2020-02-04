@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var argparse_1 = require("argparse");
+var path_1 = require("path");
 var parser = new argparse_1.ArgumentParser({
     version: "0.0.1",
     addHelp: true,
@@ -23,6 +24,6 @@ parser.addArgument(["-d"], {
     metavar: "dereference"
 });
 exports.args = parser.parseArgs();
-// args.file = resolve(join(process.cwd(), args.file));
-// args.schema = resolve(join(process.cwd(), args.schema));
+exports.args.file = path_1.resolve(path_1.join(process.cwd(), exports.args.file));
+exports.args.schema = path_1.resolve(path_1.join(process.cwd(), exports.args.schema));
 exports.default = exports.args;
