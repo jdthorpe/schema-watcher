@@ -20,6 +20,9 @@ function validate_file() {
     var raw;
     console.log(chalk_1.default.inverse("Data file") + ": " + args_1.default.file);
     console.log(chalk_1.default.inverse("Schema file") + ": " + args_1.default.schema);
+    if (args_1.default.query) {
+        console.log(chalk_1.default.inverse("Schema path") + ": " + args_1.default.query);
+    }
     console.log(chalk_1.default.bgBlue.black("Last run at " + new Date().toLocaleString()));
     try {
         raw = fs_1.readFileSync(args_1.default.file, "utf-8");

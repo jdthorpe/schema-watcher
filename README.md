@@ -3,7 +3,7 @@
 A bare-bones command line utility that watches a schema file and a data file
 and validates the data against the schema in real time
 
-![swatch demo](demo.gif)
+![swatch demo](https://github.com/jdthorpe/schema-watcher/raw/master/demo.gif)
 
 ## Installation
 

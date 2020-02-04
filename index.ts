@@ -19,6 +19,9 @@ function validate_file() {
     let raw: string;
     console.log(`${chalk.inverse("Data file")}: ${args.file}`);
     console.log(`${chalk.inverse("Schema file")}: ${args.schema}`);
+    if (args.query) {
+        console.log(`${chalk.inverse("Schema path")}: ${args.query}`);
+    }
     console.log(
         chalk.bgBlue.black(`Last run at ${new Date().toLocaleString()}`)
     );
