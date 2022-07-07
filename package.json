@@ -1,29 +1,32 @@
 {
-    "name": "schema-watcher",
-    "version": "1.0.1",
-    "description": "File Watcher + Schema Validator",
-    "main": "index.js",
-    "author": "Jason Thorpe <jathorpe@microsoft.com>",
-    "license": "MIT",
-    "dependencies": {
-        "ajv": "^6.11.0",
-        "argparse": "^1.0.10",
-        "chalk": "^3.0.0",
-        "chokidar": "^3.3.1",
-        "jmespath": "0.14.0",
-        "js-yaml": "^3.13.1",
-        "json-schema": "^0.2.5",
-        "json-schema-ref-parser": "^7.1.3"
-    },
-    "devDependencies": {
-        "@types/argparse": "^1.0.38",
-        "@types/jmespath": "^0.15.0",
-        "@types/js-yaml": "^3.12.2",
-        "@types/json-schema": "^7.0.4",
-        "@types/node": "^13.7.0",
-        "@types/node-emoji": "^1.8.1"
-    },
-    "bin": {
-        "swatch": "./bin/swatch"
-    }
+  "name": "schema-watcher",
+  "version": "1.0.1",
+  "description": "File Watcher + Schema Validator",
+  "main": "index.js",
+  "author": "Jason Thorpe <jathorpe@microsoft.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ajv": "^8.11.0",
+    "ajv-formats": "^2.1.1",
+    "ajv-keywords": "^5.1.0",
+    "argparse": "^2.0.1",
+    "chalk": "^4.1.2",
+    "chokidar": "^3.3.1",
+    "jmespath": "0.14.0",
+    "js-yaml": "^4.1.0",
+    "json-schema": "^0.4.0",
+    "json-schema-ref-parser": "^9.0.9"
+  },
+  "devDependencies": {
+    "@types/argparse": "^2.0.10",
+    "@types/jmespath": "^0.14.0",
+    "@types/js-yaml": "^4.0.5",
+    "@types/json-schema": "^7.0.4",
+    "@types/node": "^18.0.3",
+    "@types/node-emoji": "^1.8.1",
+    "typescript": "^4.7.4"
+  },
+  "bin": {
+    "swatch": "./bin/swatch"
+  }
 }

@@ -1,29 +1,29 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.args = void 0;
 var argparse_1 = require("argparse");
 var path_1 = require("path");
 var parser = new argparse_1.ArgumentParser({
-    version: "0.0.1",
-    addHelp: true,
-    description: "Watch and validate JSON / YAML files"
+    // version: "0.0.1",
+    // addHelp: true,
+    description: "Watch and validate JSON / YAML files",
 });
-parser.addArgument(["-f", "--file"], {
+parser.add_argument("-f", "--file", {
     help: "The data file to watch and validate",
-    required: true
+    required: true,
 });
-parser.addArgument(["-s", "--schema"], {
+parser.add_argument("-s", "--schema", {
     help: "Path to a schema file",
-    required: true
+    required: true,
 });
-parser.addArgument(["-q", "--query"], {
-    help: "JMESpath query to the schema if nested within a larger document"
+parser.add_argument("-q", "--query", {
+    help: "JMESpath query to the schema if nested within a larger document",
 });
-parser.addArgument(["-d"], {
-    action: "storeTrue",
+parser.add_argument("-d", {
+    action: "store_true",
     help: "De-reference the Schema object (i.e. expand the '$ref' attributes).\n        This may be required when the schema is nested within a larger\n        document, but may increase memory usage and slow down validation.",
-    metavar: "dereference"
 });
-exports.args = parser.parseArgs();
-exports.args.file = path_1.resolve(path_1.join(process.cwd(), exports.args.file));
-exports.args.schema = path_1.resolve(path_1.join(process.cwd(), exports.args.schema));
+exports.args = parser.parse_args();
+exports.args.file = (0, path_1.resolve)(exports.args.file); // join(process.cwd(), args.file)
+exports.args.schema = (0, path_1.resolve)(exports.args.schema); // join(process.cwd(), args.schema)
 exports.default = exports.args;
