@@ -1,6 +1,6 @@
 {
   "name": "schema-watcher",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "File Watcher + Schema Validator",
   "main": "index.js",
   "author": "Jason Thorpe <jathorpe@microsoft.com>",
