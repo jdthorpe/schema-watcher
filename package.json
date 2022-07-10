@@ -1,6 +1,6 @@
 {
   "name": "schema-watcher",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "File Watcher + Schema Validator",
   "main": "index.js",
   "author": "Jason Thorpe <jathorpe@microsoft.com>",
@@ -34,5 +34,12 @@
   "bin": {
     "swatch": "./bin/swatch"
   },
-  "keywords": ["JSON","schema","JSONschema","JSON schema","watch","--watch"]
+  "keywords": [
+    "JSON",
+    "schema",
+    "JSONschema",
+    "JSON schema",
+    "watch",
+    "--watch"
+  ]
 }
