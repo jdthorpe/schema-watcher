@@ -5,6 +5,11 @@
   "main": "index.js",
   "author": "Jason Thorpe <jathorpe@microsoft.com>",
   "license": "MIT",
+  "homepage": "https://github.com/jdthorpe/schema-watcher#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdthorpe/schema-watcher"
+  },
   "dependencies": {
     "ajv": "^8.11.0",
     "ajv-formats": "^2.1.1",
@@ -28,5 +33,6 @@
   },
   "bin": {
     "swatch": "./bin/swatch"
-  }
+  },
+  "keywords": ["JSON","schema","JSONschema","JSON schema","watch","--watch"]
 }
