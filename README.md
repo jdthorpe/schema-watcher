@@ -37,7 +37,7 @@ yarn global add schema-watcher
      type: object
      properties: 
         something:
-            $ref: '#/.schema-2'
+            $ref: '#./schema-2'
          
     schema-2:
      type: object
